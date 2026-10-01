@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校園電視台：影音製作與實戰課程大綱</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        /* Printable PDF A4 Dimensions Styling */
+        .pdf-page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 18mm 18mm;
+            margin: 20px auto;
+            background: #1e293b;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* Highlight editable elements */
+        [contenteditable="true"] {
+            outline: none;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            padding: 2px 4px;
+            margin: -2px -4px;
+        }
+        [contenteditable="true"]:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.4);
+        }
+        [contenteditable="true"]:focus {
+            background-color: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 0 0 2px #f59e0b;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #0f172a !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .pdf-page {
+                width: 100% !important;
+                min-height: 100vh !important;
+                margin: 0 !important;
+                padding: 12mm 15mm !important;
+                background: #ffffff !important;
+                color: #0f172a !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+            /* Dark elements to light for clean printing */
+            .bg-slate-800, .bg-slate-900\/50, .bg-slate-900 {
+                background-color: #f8fafc !important;
+                border-color: #e2e8f0 !important;
+                color: #0f172a !important;
+            }
+            .text-slate-300, .text-slate-400 {
+                color: #475569 !important;
+            }
+            .text-amber-400, .text-amber-300 {
+                color: #d97706 !important;
+            }
+            .border-slate-700 {
+                border-color: #cbd5e1 !important;
+            }
+            [contenteditable="true"]:hover, [contenteditable="true"]:focus {
+                background-color: transparent !important;
+                box-shadow: none !important;
+            }
+            .phase-badge {
+                border: 1px solid #cbd5e1 !important;
+            }
+        }
+    </style>
+</head>
+<body class="py-6 px-4">
+
+    <!-- Floating Action Toolbar (Non-printable) -->
+    <div class="no-print max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 bg-slate-800/90 backdrop-blur border border-slate-700 p-4 rounded-xl shadow-xl">
+        <div class="flex items-center gap-3">
+            <div class="p-2 bg-amber-500/20 text-amber-400 rounded-lg">
+                <i class="fa-solid fa-pen-to-square text-xl"></i>
+            </div>
+            <div>
+                <h2 class="font-bold text-white text-base">可編輯模式已啟用</h2>
+                <p class="text-xs text-slate-400">點擊畫面上任何文字即可直接修改內容，完成後可下載 PDF</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <button onclick="window.print()" class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold rounded-lg shadow-lg flex items-center gap-2 transition active:scale-95">
+                <i class="fa-solid fa-file-pdf text-lg"></i>
+                列印 / 儲存為 PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Main A4 Printable Document -->
+    <div class="pdf-page flex flex-col justify-between">
+        <div>
+            <!-- Document Header -->
+            <header class="border-b-2 border-amber-500 pb-5 mb-6 flex justify-between items-end">
+                <div>
+                    <span contenteditable="true" class="inline-block px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold uppercase tracking-widest rounded mb-2 border border-amber-500/20">
+                        全學年課堂大綱(10堂)
+                    </span>
+                    <h1 contenteditable="true" class="text-3xl font-extrabold text-white tracking-tight">
+                        校園電視台QMersTV課程
+                    </h1>
+                    <p contenteditable="true" class="text-slate-400 text-sm mt-1">
+                        本課程目標為由零開始教導學生對於基礎影片格式、攝影構圖、運鏡、剪接以及調色有基礎的認識，而且能夠完成至少一個作品。
+                    </p>
+                </div>
+                <div class="text-right hidden sm:block">
+                    <div contenteditable="true" class="text-xs font-semibold text-slate-400 uppercase tracking-wider">課程導師</div>
+                    <div contenteditable="true" class="text-lg font-bold text-amber-400">Justin</div>
+                </div>
+            </header>
+
+            <!-- Key Info Metrics (3 Columns) -->
+            <div class="grid grid-cols-3 gap-3 mb-6 no-print-grid">
+                <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-lg text-center">
+                    <div class="text-xs text-slate-400 mb-0.5">總課堂數</div>
+                    <div contenteditable="true" class="text-xl font-bold text-white">10 堂</div>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-lg text-center">
+                    <div class="text-xs text-slate-400 mb-0.5">上課頻率</div>
+                    <div contenteditable="true" class="text-xl font-bold text-amber-400">1 堂 (1.5hr) / 週</div>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800 p-3 rounded-lg text-center">
+                    <div class="text-xs text-slate-400 mb-0.5">首作產出</div>
+                    <div contenteditable="true" class="text-xl font-bold text-emerald-400">課堂完成前</div>
+                </div>
+            </div>
+
+            <!-- Curriculum Timeline Container -->
+            <div class="space-y-5">
+
+                <!-- Phase 1 -->
+                <div class="border-l-2 border-indigo-500 pl-4 space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span contenteditable="true" class="phase-badge bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-bold px-2.5 py-0.5 rounded">
+                            階段一：基礎認知
+                        </span>
+                    </div>
+
+                    <!-- L1 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-indigo-600/20 text-indigo-400 font-bold text-base px-2.5 py-1 rounded border border-indigo-500/20">L1</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">基礎簡介及拍攝角度</h3>
+                                <span contenteditable="true" class="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded">理論解析</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">介紹 Static、Pan、Tilt、Tracking 等鏡頭角度與電影視覺表現手法。</p>
+                            <div contenteditable="true" class="text-xs text-indigo-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-bullseye text-[10px]"></i> 成果目標：建立最基礎的影片拍攝角度
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- L2 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-indigo-600/20 text-indigo-400 font-bold text-base px-2.5 py-1 rounded border border-indigo-500/20">L2</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">影片的誕生與相機曝光三角</h3>
+                                <span contenteditable="true" class="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded">現場相機示範</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">解構一套影片是如何製作的，並且介紹影片的基礎格式及講解曝光三角學。</p>
+                            <div contenteditable="true" class="text-xs text-indigo-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-camera text-[10px]"></i> 任務：現場觀察光圈景深效果與快門速度對動態之影響。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="border-l-2 border-cyan-500 pl-4 space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span contenteditable="true" class="phase-badge bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-2.5 py-0.5 rounded">
+                            階段二：畫面構圖與運鏡
+                        </span>
+                    </div>
+
+                    <!-- L3 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-cyan-600/20 text-cyan-400 font-bold text-base px-2.5 py-1 rounded border border-cyan-500/20">L3</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">構圖、對焦與實戰</h3>
+                                <span contenteditable="true" class="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded">攝影練習</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">學習九宮格構圖、頭頂留白(Headroom)以及自動/手動對焦切換。</p>
+                            <div contenteditable="true" class="text-xs text-cyan-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-image text-[10px]"></i> 實作任務：小組互相拍攝/錄影3張不同構圖且準確對焦的半身照。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- L4 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-cyan-600/20 text-cyan-400 font-bold text-base px-2.5 py-1 rounded border border-cyan-500/20">L4</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">運鏡實戰與手持/腳架防震</h3>
+                                <span contenteditable="true" class="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded">攝影練習</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">學習正確手持相機姿勢、三腳架與雲台操作，落手練習 Pan、Tilt 與 Tracking 運鏡。</p>
+                            <div contenteditable="true" class="text-xs text-cyan-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-video text-[10px]"></i> 實作任務：持機跟拍同學走動15秒，維持畫面平穩流暢。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="border-l-2 border-amber-500 pl-4 space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span contenteditable="true" class="phase-badge bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold px-2.5 py-0.5 rounded">
+                            階段三：剪接、調色
+                        </span>
+                    </div>
+
+                    <!-- L5 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-amber-600/20 text-amber-400 font-bold text-base px-2.5 py-1 rounded border border-amber-500/20">L5</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">基礎剪接</h3>
+                                <span contenteditable="true" class="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded">進入剪接</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">剪接軟件介面入門、素材匯入(Import)、基本 Cut 剪接與剔除NG 畫面。</p>
+                        </div>
+                    </div>
+
+                    <!-- L6 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-amber-600/20 text-amber-400 font-bold text-base px-2.5 py-1 rounded border border-amber-500/20">L6</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">影像調色(Coloring) 與 A/B-Roll</h3>
+                                <span contenteditable="true" class="text-xs text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">教學</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">活用相片調色概念(曝光、對比、色溫、高光/陰影)；講解A-Roll 與B-Roll 空鏡蓋剪接位。</p>
+                            <div contenteditable="true" class="text-xs text-amber-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i> 實作任務：為素材進行色彩校正與調色。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- L7 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-amber-600/20 text-amber-400 font-bold text-base px-2.5 py-1 rounded border border-amber-500/20">L7</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">進階剪接</h3>
+                                <span contenteditable="true" class="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded">聲畫完成度包裝</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">背景音樂挑選、音量淡入淡出(Fade In/Out)、加入標題與字幕排版。</p>
+                            <div contenteditable="true" class="text-xs text-amber-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-music text-[10px]"></i> 實作任務：為20秒短片加上BGM 與對白/標題字幕。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="border-l-2 border-emerald-500 pl-4 space-y-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span contenteditable="true" class="phase-badge bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-2.5 py-0.5 rounded">
+                            階段四：實戰
+                        </span>
+                    </div>
+
+                    <!-- L8 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-emerald-600/20 text-emerald-400 font-bold text-base px-2.5 py-1 rounded border border-emerald-500/20">L8</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">Mini-Project：校園實戰拍攝</h3>
+                                <span contenteditable="true" class="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">分組外拍實戰</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">小組進行導演、攝影與收音分工落手拍攝。</p>
+                            <div contenteditable="true" class="text-xs text-emerald-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-clapperboard text-[10px]"></i> 實作任務：團隊合作收集完整A-Roll 及B-Roll 鏡頭素材。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- L9 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-emerald-600/20 text-emerald-400 font-bold text-base px-2.5 py-1 rounded border border-emerald-500/20">L9</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">後期剪接與出片(Export)</h3>
+                                <span contenteditable="true" class="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">QMersTV</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">為L8所拍攝的影片進行剪輯、調色與聲畫包裝，並Export影片。</p>
+                            <div contenteditable="true" class="text-xs text-emerald-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-file-export text-[10px]"></i> 實作任務：成功導出一條1080p MP4 校園短片作品。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- L10 -->
+                    <div class="bg-slate-800/80 border border-slate-700/80 p-3.5 rounded-lg flex gap-4 items-start">
+                        <div class="bg-emerald-600/20 text-emerald-400 font-bold text-base px-2.5 py-1 rounded border border-emerald-500/20">L10</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h3 contenteditable="true" class="text-base font-bold text-white">年度總結及檢討</h3>
+                                <span contenteditable="true" class="text-xs text-slate-400 bg-slate-900 px-2 py-0.5 rounded">作品展演</span>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-300 mt-1">總結拍攝技術與經驗。</p>
+                            <div contenteditable="true" class="text-xs text-emerald-300/80 mt-1.5 flex items-center gap-1">
+                                <i class="fa-solid fa-trophy text-[10px]"></i> 成果目標：交流檢討。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-6 pt-3 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+            <div contenteditable="true">校園電視台影音培訓計劃 • 版權所有</div>
+            <div contenteditable="true" class="text-amber-400/80 font-medium">可根據實際教學進度隨時調整內容</div>
+        </footer>
+    </div>
+
+</body>
+</html>
