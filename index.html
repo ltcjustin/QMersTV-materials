@@ -80,6 +80,66 @@
             }
             .page-break { page-break-before: always; }
         }
+    /* Camera console skin */
+@media screen {
+  :root { color-scheme: dark; --amber: #ffc267; --steel: #303942; }
+  body {
+    background-color: #0b0e11;
+    background-image: linear-gradient(#a7b7c50d 1px, transparent 1px), linear-gradient(90deg, #a7b7c50d 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .console-label {
+    display: flex; align-items: center; gap: .7rem; margin-bottom: 1.1rem;
+    font: 700 .72rem/1.5 ui-monospace, Consolas, monospace;
+    letter-spacing: .17em; color: var(--amber);
+  }
+  .console-label::before {
+    content: ''; width: .55rem; height: .55rem; border-radius: 50%;
+    background: var(--amber); box-shadow: 0 0 12px #ffc26770;
+  }
+  .glass-card {
+    background: linear-gradient(145deg, #1c2228, #12171b);
+    border: 1px solid var(--steel); border-radius: 6px;
+    box-shadow: inset 0 1px #ffffff0c, 0 4px 12px #0004;
+    backdrop-filter: none;
+  }
+  .glass-card:hover, .glass-card:active { transform: none; }
+  .glass-card:hover { background: linear-gradient(145deg, #232a31, #171c21); }
+  header.glass-card { border-top: 3px solid var(--amber); padding-bottom: 2rem; }
+  header.glass-card::after {
+    content: ''; position: absolute; inset: auto 0 0; height: 5px;
+    background: repeating-linear-gradient(125deg, #ffc267 0 8px, #1a1f24 8px 16px);
+    opacity: .65;
+  }
+  header h1 { letter-spacing: .02em; }
+  main section > div:first-child > span {
+    border-radius: 3px; padding: .45rem .8rem; letter-spacing: .08em;
+  }
+  main .glass-card { border-left: 3px solid var(--phase); }
+  .phase-border-1 { --phase: #78bddd; }
+  .phase-border-2 { --phase: #7dd5b5; }
+  .phase-border-3 { --phase: #ffc267; }
+  .phase-border-4 { --phase: #b5a5ed; }
+  main .glass-card h3 { letter-spacing: .02em; }
+  main .glass-card .shrink-0 {
+    font-family: ui-monospace, Consolas, monospace;
+    color: var(--phase); background: #101418; border: 1px solid var(--steel); border-radius: 3px;
+  }
+  .lesson-status {
+    display: inline-flex; align-items: center; gap: .35rem; padding: .14rem .5rem;
+    border: 1px solid currentColor; border-radius: 3px; font-size: .75rem;
+    color: var(--amber);
+  }
+  .lesson-status::before { content: ''; width: .35rem; height: .35rem; border-radius: 50%; background: currentColor; }
+  .lesson-status.is-complete { color: #8ee6ba; }
+  .lesson-date { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+  @media (max-width: 480px) {
+    main .glass-card > p { margin-left: 0; }
+    .lesson-status { margin-bottom: .25rem; }
+  }
+}
+@media print { .console-label { display: none; } }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 lg:p-12">
@@ -112,8 +172,9 @@
                 </div>
             </div>
 
+            <div class="console-label">QMERS TV / CAMERA TRAINING</div>
             <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                本課程目標為由零開始教導學生對於基礎影片格式、攝影構圖、運鏡、剪接以及調色有基礎的認識，而且能夠完成至少一個作品。
+                本課程目標為由零開始教導學生對於基礎影片格式、相機操作、攝影構圖、運鏡與剪接有基礎的認識，而且能夠完成至少一個作品。
             </p>
 
             <!-- 3 格核心資訊 Grid -->
@@ -145,7 +206,7 @@
                 </div>
 
                 <div class="space-y-3">
-                    <div class="glass-card rounded-xl p-5 phase-border-1 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-1" id="L1">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 font-bold text-sm flex items-center justify-center shrink-0">L1</span>
@@ -153,13 +214,15 @@
                             </div>
                             <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">理論解析</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">介紹 Static、Pan、Tilt、Tracking 等鏡頭角度與電影視覺表現手法。</p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status is-complete">已完成</strong> · 課程日期：<time class="lesson-date" datetime="2026-09-28">2026/09/28（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11 mb-2">介紹 Static、Pan、Tilt、Tracking 等鏡頭角度與電影視覺表現手法。</p>
                         <p class="text-xs text-sky-400 font-medium ml-11 flex items-center gap-1.5">
                             <i class="fa-solid fa-bullseye"></i> 成果目標：建立最基礎的影片拍攝角度
                         </p>
+
                     </div>
 
-                    <div class="glass-card rounded-xl p-5 phase-border-1 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-1" id="L2">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 font-bold text-sm flex items-center justify-center shrink-0">L2</span>
@@ -167,10 +230,12 @@
                             </div>
                             <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">現場相機示範</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">解構一套影片是如何製作的，並且介紹影片的基礎格式及講解曝光三角學。</p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status is-complete">已完成</strong> · 課程日期：<time class="lesson-date" datetime="2026-10-05">2026/10/05（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11 mb-2">解構一套影片是如何製作的，並且介紹影片的基礎格式及講解曝光三角學。</p>
                         <p class="text-xs text-sky-400 font-medium ml-11 flex items-center gap-1.5">
                             <i class="fa-solid fa-camera"></i> 任務：現場觀察光圈景深效果與快門速度對動態之影響。
                         </p>
+
                     </div>
                 </div>
             </section>
@@ -184,7 +249,7 @@
                 </div>
 
                 <div class="space-y-3">
-                    <div class="glass-card rounded-xl p-5 phase-border-2 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-2" id="L3">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-sm flex items-center justify-center shrink-0">L3</span>
@@ -192,24 +257,26 @@
                             </div>
                             <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">攝影練習</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">學習九宮格構圖、頭頂留白 (Headroom) 以及自動/手動對焦切換。</p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status is-complete">已完成</strong> · 課程日期：<time class="lesson-date" datetime="2026-10-12">2026/10/12（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11 mb-2">學習九宮格構圖、頭頂留白 (Headroom) 以及自動/手動對焦切換。</p>
                         <p class="text-xs text-emerald-400 font-medium ml-11 flex items-center gap-1.5">
                             <i class="fa-solid fa-list-check"></i> 實作任務：小組互相拍攝/錄影 3 張不同構圖且準確對焦的半身照。
                         </p>
+
                     </div>
 
-                    <div class="glass-card rounded-xl p-5 phase-border-2 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-2" id="L4">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-sm flex items-center justify-center shrink-0">L4</span>
-                                <h3 class="text-lg font-bold text-white">運鏡實戰與手持/腳架防震</h3>
+                                <h3 class="text-lg font-bold text-white">短片比賽簡介與構思</h3>
                             </div>
-                            <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">攝影練習</span>
+                            <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">比賽導向</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">學習正確手持相機姿勢、三腳架與雲台操作，落手練習 Pan、Tilt 與 Tracking 運鏡。</p>
-                        <p class="text-xs text-emerald-400 font-medium ml-11 flex items-center gap-1.5">
-                            <i class="fa-solid fa-video"></i> 實作任務：持機跟拍同學走動 15 秒，維持畫面平穩流暢。
-                        </p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status is-complete">已完成</strong> · 課程日期：<time class="lesson-date" datetime="2026-10-26">2026/10/26（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11 mb-2">認識短片比賽的主題、參賽要求及提交方式。小組討論想拍的故事，並寫下一句故事構思及三個初步鏡頭。</p>
+                        <p class="text-sm ml-11"><a class="text-emerald-300 underline" href="https://www.funchannel.org.hk/shortfilm_competition_2026/">查看 2026 短片比賽官方詳情</a></p>
+
                     </div>
                 </div>
             </section>
@@ -221,48 +288,42 @@
             <section class="space-y-4">
                 <div class="flex items-center gap-3">
                     <span class="px-3 py-1 bg-rose-500/20 text-rose-300 text-xs font-bold rounded-lg border border-rose-500/30">
-                        階段三：剪接、調色
+                        階段三：回顧與拍攝挑戰
                     </span>
                 </div>
 
                 <div class="space-y-3">
-                    <div class="glass-card rounded-xl p-5 phase-border-3 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-3" id="L5">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 font-bold text-sm flex items-center justify-center shrink-0">L5</span>
-                                <h3 class="text-lg font-bold text-white">基礎剪接</h3>
+                                <h3 class="text-lg font-bold text-white">回顧與實習（Review）</h3>
                             </div>
-                            <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">進入剪接教學</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11">剪接軟件介面入門、素材匯入 (Import)、基本 Cut 剪接與剔除 NG 畫面。</p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status">待上課</strong> · 課程日期：<time class="lesson-date" datetime="2026-11-09">2026/11/09（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11">重溫 L1–L4 的曝光、構圖、對焦及運鏡。重播練習片段，指出一項可改善的操作。</p>
                     </div>
 
-                    <div class="glass-card rounded-xl p-5 phase-border-3 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-3" id="L6">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 font-bold text-sm flex items-center justify-center shrink-0">L6</span>
-                                <h3 class="text-lg font-bold text-white">影像調色 (Coloring) 與 A/B-Roll</h3>
+                                <h3 class="text-lg font-bold text-white">相機入門挑戰</h3>
                             </div>
-                            <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">進入剪接教學</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">活用相片調色概念 (曝光、對比、色溫、高光/陰影)；講解 A-Roll 與 B-Roll 空鏡蓋剪接位。</p>
-                        <p class="text-xs text-rose-400 font-medium ml-11 flex items-center gap-1.5">
-                            <i class="fa-solid fa-palette"></i> 實作任務：為素材進行色彩校正與調色。
-                        </p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status">待上課</strong> · 課程日期：<time class="lesson-date" datetime="2027-01-11">2027/01/11（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11">兩人輪流開機、切換影片模式、對焦、錄影及重播。導師示範最多人卡住的一步，再讓每人重拍一段清晰、穩定、足 10 秒的影片。</p>
                     </div>
 
-                    <div class="glass-card rounded-xl p-5 phase-border-3 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-3" id="L7">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 font-bold text-sm flex items-center justify-center shrink-0">L7</span>
-                                <h3 class="text-lg font-bold text-white">進階剪接</h3>
+                                <h3 class="text-lg font-bold text-white">校園三鏡頭</h3>
                             </div>
-                            <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">聲畫完成度包裝</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">背景音樂挑選、音量淡入淡出 (Fade In/Out)、加入標題與字幕排版。</p>
-                        <p class="text-xs text-rose-400 font-medium ml-11 flex items-center gap-1.5">
-                            <i class="fa-solid fa-music"></i> 實作任務：為 20 秒短片加上 BGM 與對白/標題字幕。
-                        </p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status">待上課</strong> · 課程日期：<time class="lesson-date" datetime="2027-01-18">2027/01/18（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11">分組輪流掌鏡，用全景交代位置、中景呈現動作、特寫補充細節。拍三段能連成同一個校園動作的素材。</p>
                     </div>
                 </div>
             </section>
@@ -271,51 +332,42 @@
             <section class="space-y-4">
                 <div class="flex items-center gap-3">
                     <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-bold rounded-lg border border-purple-500/30">
-                        階段四：實戰
+                        階段四：剪接、出片與展演
                     </span>
                 </div>
 
                 <div class="space-y-3">
-                    <div class="glass-card rounded-xl p-5 phase-border-4 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-4" id="L8">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 font-bold text-sm flex items-center justify-center shrink-0">L8</span>
-                                <h3 class="text-lg font-bold text-white">Mini-Project: 校園實戰拍攝</h3>
+                                <h3 class="text-lg font-bold text-white">Premiere Pro 入門</h3>
                             </div>
-                            <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">分組外拍實戰</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">小組進行導演、攝影與收音分工落手拍攝。</p>
-                        <p class="text-xs text-purple-400 font-medium ml-11 flex items-center gap-1.5">
-                            <i class="fa-solid fa-clapperboard"></i> 實作任務：團隊合作收集完整 A-Roll 及 B-Roll 鏡頭素材。
-                        </p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status">待上課</strong> · 課程日期：<time class="lesson-date" datetime="2027-02-22">2027/02/22（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11">匯入 L7 素材，放上時間軸，剪走多餘部分，再按動作次序排列，完成一段連貫的粗剪。</p>
                     </div>
 
-                    <div class="glass-card rounded-xl p-5 phase-border-4 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-4" id="L9">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 font-bold text-sm flex items-center justify-center shrink-0">L9</span>
-                                <h3 class="text-lg font-bold text-white">後期剪接與出片 (Export)</h3>
+                                <h3 class="text-lg font-bold text-white">聲音、字幕與輸出</h3>
                             </div>
-                            <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">QMersTV</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">為 L8 所拍攝的影片進行剪輯、調色與聲畫包裝，並 Export 影片。</p>
-                        <p class="text-xs text-purple-400 font-medium ml-11 flex items-center gap-1.5">
-                            <i class="fa-solid fa-file-video"></i> 實作任務：成功導出一條 1080p MP4 校園短片作品。
-                        </p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status">待上課</strong> · 課程日期：<time class="lesson-date" datetime="2027-03-08">2027/03/08（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11">在 L8 粗剪加入簡短標題或字幕，調整音量。每組輸出一條 1080p MP4，並重播檢查。</p>
                     </div>
 
-                    <div class="glass-card rounded-xl p-5 phase-border-4 cursor-pointer">
+                    <div class="glass-card rounded-xl p-5 phase-border-4" id="L10">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                             <div class="flex items-center gap-3">
                                 <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 font-bold text-sm flex items-center justify-center shrink-0">L10</span>
-                                <h3 class="text-lg font-bold text-white">年度總結及檢討</h3>
+                                <h3 class="text-lg font-bold text-white">作品放映與重拍</h3>
                             </div>
-                            <span class="text-xs font-medium px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md border border-slate-700 self-start sm:self-auto">作品展演</span>
                         </div>
-                        <p class="text-sm text-slate-300 ml-11 mb-2">總結拍攝技術與經驗。</p>
-                        <p class="text-xs text-purple-400 font-medium ml-11 flex items-center gap-1.5">
-                            <i class="fa-solid fa-comments"></i> 成果目標：交流檢討。
-                        </p>
+                        <p class="text-sm text-slate-300 ml-11 mb-2"><strong class="lesson-status">待上課</strong> · 課程日期：<time class="lesson-date" datetime="2027-03-15">2027/03/15（星期一）</time></p>
+<p class="text-sm text-slate-300 ml-11">放映作品，指出一個有效鏡頭和一個待改善的位置，再重拍。比較前後，說明下次會採用的一項做法。</p>
                     </div>
                 </div>
             </section>
